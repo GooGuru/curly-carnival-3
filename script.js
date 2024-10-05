@@ -7,38 +7,43 @@ const collectEmployees = function () {
   const employeesArray = [];
   let addAnother = true;
 
-  while(addAnother) {
+  while (addAnother) {
     const firstName = prompt("Enter First Name:", "");
     const lastName = prompt("Enter last Name:", "");
     const salary = parseInt(prompt("Enter Salary", ""));
-  
-  
-  const employee = {
-    firstName: firstName,
-    lastName: lastName,
-    salary: salary
+
+    const employee = {
+      firstName: firstName,
+      lastName: lastName,
+      salary: salary,
     };
 
-    addAnother = confirm('Do you want to add another employee?');
+    addAnother = confirm("Do you want to add another employee?");
 
     employeesArray.push(employee);
     console.log(employeesArray);
-  };
-  
+  }
 
-    return employeesArray;
-  };
+  return employeesArray;
+};
 
 // Display the average salary
 const displayAverageSalary = function (employeesArray) {
   // TODO: Calculate and display the average salary
   const totalEmployees = employeesArray.length;
 
-  const totalSalary = employeesArray.reduce((acc, employeesArray) => acc + employeesArray.salary, 0);
-  
+  const totalSalary = employeesArray.reduce(
+    (acc, employeesArray) => acc + employeesArray.salary,
+    0
+  );
+
   const averageSalary = totalSalary / totalEmployees;
-  
-  console.log(`The average employee salary between our ${totalEmployees} employees is $${averageSalary.toFixed(2)}.`);
+
+  console.log(
+    `The average employee salary between our ${totalEmployees} employees is $${averageSalary.toFixed(
+      2
+    )}.`
+  );
 };
 
 // Select a random employee
@@ -47,7 +52,9 @@ const getRandomEmployee = function (employeesArray) {
   const randomIndex = Math.floor(Math.random() * employeesArray.length);
   const randomEmployee = employeesArray[randomIndex];
 
-  console.log(`Congratulations to ${randomEmployee.firstName} ${randomEmployee.lastName}, our random drawing winner!`)
+  console.log(
+    `Congratulations to ${randomEmployee.firstName} ${randomEmployee.lastName}, our random drawing winner!`
+  );
 };
 
 /*
